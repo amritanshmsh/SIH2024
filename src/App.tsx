@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import AadhaarNumbers from "./components/AadharNumbers";
+import AadhaarTelecast from "./components/AadharTelecast";
+import Carousel from "./components/Carousel";
+import Footer from "./components/Footer";
+import InfoCardsSection from "./components/InforCardsSection";
+import InfoSection from "./components/InfoSection";
+import MediaCoverage from "./components/MediaCoverage";
+import Navbar from "./components/Navbar";
+import PressRelease from "./components/PressRelease";
+import FAQ from "./components/FAQ";
+import Navbar2 from "./components/Navbar2";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Navbar2 />
+      <Navbar />
+      <div className="flex flex-col min-h-screen">
+        <Carousel />
+        <InfoSection />
+        <div className="flex flex-col sm:flex-row sm:space-x-6 px-4">
+          {/* Left Side: InfoCardsSection */}
+          <div className="sm:w-2/3">
+            <InfoCardsSection />
+          </div>
+          {/* Right Side: FAQ */}
+          <FAQ />
+        </div>
+        <MediaCoverage />
+        <AadhaarTelecast />
+        <PressRelease />
+        <AadhaarNumbers />
+        <div className="flex-grow"></div>
+        <Footer />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
